@@ -69,28 +69,16 @@ Event Listeners (klick på knappar, submit av formulär).
 Anrop till dina nya moduler.
 Bort ska: All logik som skapar HTML eller hanterar data direkt.
 
-Vad ska jag refaktorera? (Lathund)
-Är du osäker på vad som ska vart i just din app? Använd denna guide:
-Om du ser kod som...
-...då hör den hemma i:
+### Vad ska jag flytta? (Lathund)
 
-Definierar interface eller type
-📂 src/models/
+Använd lathunden nedan för att avgöra var din kod hör hemma:
 
-Använder document.createElement, innerHTML, append
-
-📂 src/components/
-
-Innehåller fetch(...) eller en lista const data = [...]
-
-📂 src/services/
-
-Använder localStorage eller räknar ut saker (Matte/Tid)
-
-📂 src/utils/
-
-Lyssnar på addEventListener eller startar appen
-
-📄 src/main.ts (Låt ligga kvar)
+| Om koden... | Flytta till: |
+| :--- | :--- |
+| Definierar `interface` eller `type` | 📂 **`src/models/`** |
+| Använder `createElement`, `innerHTML` eller `append` | 📂 **`src/components/`** |
+| Innehåller `fetch()` eller listor med data | 📂 **`src/services/`** |
+| Använder `localStorage` eller räknar ut matte/tid | 📂 **`src/utils/`** |
+| Lyssnar på `addEventListener` eller startar appen | 📄 **`src/main.ts`** (Låt ligga kvar) |
 
 
