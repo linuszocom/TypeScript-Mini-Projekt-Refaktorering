@@ -56,13 +56,13 @@ Leta efter hårdkodad data (mock data) eller kod som gör `fetch()`.
 * **Filnamn:** T.ex. `TodoService.ts` eller `ApiService.ts`.
 * **Action:** Flytta datan/fetch-anropet hit. Exportera en funktion (t.ex. `getTodos()`) som returnerar datan till den som anropar den.
 
-### 4. Flytta Verktygen (Utils) 🔧
+### 4. Flytta Verktygen (Utils) 
 Leta efter generell logik som inte är specifik för just din app-idé.
 * **Gör:** Skapa mappen `src/utils/`.
 * **Filnamn:** T.ex. `storage.ts` eller `helpers.ts`.
 * **Tänk på:** Dessa funktioner ska vara "rena". Skicka in data $\rightarrow$ få ut resultat (t.ex. spara till `localStorage` eller formatera datum).
 
-### 5. Städa Dirigenten (Main.ts) 🪄
+### 5. Städa Dirigenten (Main.ts) 
 Nu ska din `main.ts` vara betydligt kortare och lättare att läsa!
 
 **Detta ska finnas kvar:**
