@@ -32,42 +32,47 @@ src/
  └── main.ts          (Dirigenten som styr allt)
 ```
 
-Steg för steg
-1. Flytta Ritningarna (Models) 
-Leta upp dina interface eller type-definitioner i din kod.
-Gör: Skapa mappen src/models.
-Filnamn: Döp filen efter det den beskriver (t.ex. Todo.ts, Weather.ts).
-Kod: Klipp ut interfacet, klistra in det och lägg till nyckelordet export.
-Fixa: Gå tillbaka till main.ts och importera det.
+## Steg för steg: Refaktorisering
 
-2. Flytta Målar-koden (Components) 
-Leta efter funktioner som skapar HTML-element (t.ex. document.createElement, innerHTML, append).
-Gör: Skapa mappen src/components.
-Filnamn: T.ex. TodoList.ts, ProductCard.ts.
-Refactoring:
-Se till att funktionen tar emot data som argument (parametrar) istället för att läsa globala variabler.
-Exempel: renderList(list: Todo[]) istället för att läsa en global todoList.
+Följ dessa steg i ordning för att strukturera om ditt projekt.
 
-3. Flytta Datan (Services) 
-Har du en hårdkodad lista (mock data) eller kod som gör fetch()?
-Gör: Skapa mappen src/services.
-Filnamn: T.ex. TodoService.ts eller ApiService.ts.
-Kod: Flytta datan/fetch-anropet hit. Exportera en funktion som heter t.ex. getTodos() som returnerar datan.
+### 1. Flytta Ritningarna (Models) 📐
+Leta upp dina `interface` eller `type`-definitioner.
+* **Gör:** Skapa mappen `src/models/`.
+* **Filnamn:** Döp filen efter vad den beskriver (t.ex. `Todo.ts`, `Weather.ts`).
+* **Action:** Klipp ut interfacet från din huvudfil, klistra in det i den nya filen och lägg till nyckelordet `export`.
+* **Fixa:** Gå tillbaka till `main.ts` och importera det (t.ex. `import { Todo } from './models/Todo'`).
 
-4. Flytta Verktygen (Utils) 
-Har du kod som inte handlar om din specifika app, utan är generell logik? T.ex. spara till localStorage, slumpa tal eller formatera datum/tid?
-Gör: Skapa mappen src/utils.
-Filnamn: T.ex. storage.ts eller helpers.ts.
-Tänk på: Dessa funktioner ska vara "rena". Skicka in data -> Få ut resultat.
+### 2. Flytta Målar-koden (Components) 
+Leta efter funktioner som skapar HTML-element (t.ex. `createElement`, `innerHTML`, `append`).
+* **Gör:** Skapa mappen `src/components/`.
+* **Filnamn:** T.ex. `TodoList.ts` eller `ProductCard.ts`.
+* **Refactoring:** Se till att funktionen tar emot data som argument istället för att läsa globala variabler.
+    * *Exempel:* Använd `renderList(list: Todo[])` istället för att läsa en global `todoList`.
 
-5. Städa Dirigenten (Main.ts) 
-Nu ska din main.ts vara mycket kortare!
+### 3. Flytta Datan (Services) 
+Leta efter hårdkodad data (mock data) eller kod som gör `fetch()`.
+* **Gör:** Skapa mappen `src/services/`.
+* **Filnamn:** T.ex. `TodoService.ts` eller `ApiService.ts`.
+* **Action:** Flytta datan/fetch-anropet hit. Exportera en funktion (t.ex. `getTodos()`) som returnerar datan till den som anropar den.
 
-Kvar ska finnas:
-Initiering av appen (hämta data).
-Event Listeners (klick på knappar, submit av formulär).
-Anrop till dina nya moduler.
-Bort ska: All logik som skapar HTML eller hanterar data direkt.
+### 4. Flytta Verktygen (Utils) 🔧
+Leta efter generell logik som inte är specifik för just din app-idé.
+* **Gör:** Skapa mappen `src/utils/`.
+* **Filnamn:** T.ex. `storage.ts` eller `helpers.ts`.
+* **Tänk på:** Dessa funktioner ska vara "rena". Skicka in data $\rightarrow$ få ut resultat (t.ex. spara till `localStorage` eller formatera datum).
+
+### 5. Städa Dirigenten (Main.ts) 🪄
+Nu ska din `main.ts` vara betydligt kortare och lättare att läsa!
+
+**Detta ska finnas kvar:**
+* ✅ Initiering av appen (hämta startdata).
+* ✅ Event Listeners (klick på knappar, submit av formulär).
+* ✅ Anrop till dina nya moduler.
+
+**Detta ska bort:**
+* ❌ All logik som skapar HTML direkt.
+* ❌ Direkt hantering av komplex data eller fetch-anrop.
 
 ### Vad ska jag flytta? (Lathund)
 
