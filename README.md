@@ -78,15 +78,19 @@ Definierar interface eller type
 📂 src/models/
 
 Använder document.createElement, innerHTML, append
+
 📂 src/components/
 
 Innehåller fetch(...) eller en lista const data = [...]
+
 📂 src/services/
 
 Använder localStorage eller räknar ut saker (Matte/Tid)
+
 📂 src/utils/
 
 Lyssnar på addEventListener eller startar appen
+
 📄 src/main.ts (Låt ligga kvar)
 
 
